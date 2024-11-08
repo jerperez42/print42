@@ -6,21 +6,17 @@
 /*   By: jerperez <jerperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 10:21:53 by jerperez          #+#    #+#             */
-/*   Updated: 2024/11/08 09:32:31 by jerperez         ###   ########.fr       */
+/*   Updated: 2024/11/08 09:50:27 by jerperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include <iostream>
 # include <cstring>
 # include <map>
-
+# include <unistd.h>
+# include "print42.hpp"
 
 typedef std::map<std::string, std::string> t_map;
-// static void	_print_help(void)
-// {
-// 	std::cout << "manual" << std::endl;
-// }
-
 
 static int	_updateArgs(std::string pair, t_map &map)
 {
@@ -72,16 +68,22 @@ static int	_get_score(int ac, char *av[])
 static void	_print_msg(int ac, char *av[], char *env[])
 {
 	(void)env;
-	std::cout << 42 << std::endl;
-	//std::cerr << "info: your score is " << _get_score(ac, av) << ',' << ac << std::endl;
+	std::string ans = ("42\n");
+
+	write(0, ans.c_str(), ans.length());
+	//std::cout << 42 << std::endl;
 	std::cerr << "info: your score is " << _get_score(ac, av) << std::endl;
 }
 
 int	main(int ac, char *av[], char *env[])
 {
 	t_map map;
+
 	if (_parseArgs(ac, av, map))
+	{
+		std::cerr << "print42: error: bad options" << std :: endl;
 		return 1;
+	}
 	_printArgs(map);
 	_print_msg(ac, av, env);
 	return 0;

@@ -6,11 +6,12 @@
 #    By: jerperez <jerperez@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/06 10:28:10 by jerperez          #+#    #+#              #
-#    Updated: 2024/11/07 17:39:46 by jerperez         ###   ########.fr        #
+#    Updated: 2024/11/08 10:11:53 by jerperez         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = print42
+NAME_C = checker
 
 CXX = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98	
@@ -40,6 +41,10 @@ $(NAME): $(OBJS)
 	@$(CXX) $(CPPFLAGS) -o $@ $^
 	@echo "$(_COLOR_GREEN)Ready to use $(_COLOR_BOLD)$(NAME) !$(_COLOR_END)"
 
+$(NAME_C):
+	c++ $(NAME_C).cpp -o $(NAME_C)
+	@echo "$(_COLOR_GREEN)Ready to use $(_COLOR_BOLD)$(NAME_C) !$(_COLOR_END)"
+
 -include $(OBJS:.o=.d)
 
 $(OBJ_DIR)/%.o: %.cpp
@@ -47,12 +52,14 @@ $(OBJ_DIR)/%.o: %.cpp
 	@mkdir -p $(@D)
 	@$(CXX) $(CPPFLAGS) -MMD -MP -c -o $@ $<
 
+#@$(CXX) $(CPPFLAGS) -MMD -MP -c -o $@ $<
+
 clean:
 	@rm -rf $(OBJ_DIR)/
 	@echo "$(_COLOR_YELLOW)$(OBJ_DIR) directory removed.$(_COLOR_END)"
 
 fclean: clean
-	@rm -f $(NAME) $(NAME_B)
+	@rm -f $(NAME) $(NAME_B) $(NAME_C)
 	@echo "$(_COLOR_YELLOW)Program(s) removed.$(_COLOR_END)"
 
 re: fclean all

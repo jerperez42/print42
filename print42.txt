@@ -39,7 +39,7 @@ OPTIONS
 
      --set-fd-out=<0|1|2>      프로그램 버전을 출력합니다.
 
-     --기분=<basic | 신남 | 기본 | 나태 >      프로그램 버전을 출력합니다.
+     --기분=<basic | 신남 | 기본 | 나태 >      프로그램의 기분 전환을 위한 옵션입니다.
 
      --modulo-prendre-temps-journée=<nombre>      프로그램 버전을 출력합니다.
 

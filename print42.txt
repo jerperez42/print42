@@ -64,7 +64,7 @@ SEE ALSO
      None.
 
 AUTHOR
-     Dong Kim <email@example.com>
+     동엽 김 <저는 아무 것도 몰라요. 프로그램에 대한 문의는 42 파리로 해주세요.>
 	 Jérémy Perez <please don't contact me, I had nothing to do with this.>
 
 COPYRIGHT

@@ -6,7 +6,7 @@
 #    By: jerperez <jerperez@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/06 10:28:10 by jerperez          #+#    #+#              #
-#    Updated: 2024/11/08 10:11:53 by jerperez         ###   ########.fr        #
+#    Updated: 2024/11/08 11:21:32 by jerperez         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,10 @@ NAME_C = checker
 CXX = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98	
 
-SRCS	=	print42.cpp
+SRCS	=	print42.cpp \
+			putstr_fd.cpp \
+			user.cpp \
+			mood.cpp
 
 OBJ_DIR	=	obj
 

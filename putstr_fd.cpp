@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print42.hpp                                        :+:      :+:    :+:   */
+/*   putstr_fd.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jerperez <jerperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/08 09:45:45 by jerperez          #+#    #+#             */
-/*   Updated: 2024/11/08 11:19:54 by jerperez         ###   ########.fr       */
+/*   Created: 2024/11/08 10:50:34 by jerperez          #+#    #+#             */
+/*   Updated: 2024/11/08 11:05:12 by jerperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRINT42_HPP
-# define PRINT42_HPP
-
-#include <map>
 #include <string>
+#include <unistd.h>
+//#include <iostream>
 
-	typedef std::map<std::string, std::string> t_map;
-
-	void log_result(void);
-	void putstr_fd(std::string const &s, int fd = 0);
-	void set_mood(t_map &map, std::string &s);
-
-#endif
+void putstr_fd(std::string const &s, int fd = 0)
+{
+	if (fd == STDIN_FILENO || fd == STDOUT_FILENO || fd == STDERR_FILENO)
+		write(fd, s.c_str(), s.length());
+}

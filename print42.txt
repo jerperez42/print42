@@ -55,3 +55,33 @@ AUTHOR
 
 COPYRIGHT
      Copyright 2024 Dong Kim. All rights reserved.
+
+-a
+Adds 1
+
+--toggle-log=(on, off)
+Toggles log in /tmp
+
+-ns
+Do not substract 2 if -a is on
+
+-mood=(groovy)
+decrease the score as specific counts.
+
+--difficulty=(easy, medium, hard)
+sets the difficulty, changing the difficulty is rude
+
+--disable-politeness
+switch the toggle to print "Hey, here is your answer [...] you are welcome."
+
+--allow-size=
+
+--print-usename
+prints the username in stderr
+
+--print-42
+prints 42
+
+--set-fd-out=(0 | 1 | 2)
+Set the written file descriptor
+

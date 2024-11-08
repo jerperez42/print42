@@ -4,7 +4,7 @@ NAME
      print42 – Prints 42 on STDOUT as requested.
 
 SYNOPSIS
-     print42 [--log-result=<yes | no>] [--set-fd-out=<0|1|2>] [--기분=<basic | 신남 | 기본 | 나태 >] [--modulo-prendre-temps-journée=<nombre>]
+     print42 [--log-result=<yes | no>] [--set-fd-out=<0|1|2>] [--기분=<basic | 신남 | 기본 | 나태 >] [--modulo-prendre-temps-journée=<nombre>] [--print-42=<yes|no>]
 
 DESCRIPTION
      Prints 42 on STDOUT as requested.
@@ -17,6 +17,8 @@ OPTIONS
      --기분=<basic | 신남 | 기본 | 나태 >      프로그램의 기분 전환을 위한 옵션입니다.
 
      --modulo-prendre-temps-journée=<nombre>      Ajoute au résultat les minutes 0-59 par défaut. Ceci change le comportement.
+
+	 --print-42=<yes|no>      Prints `42`.
 
 ARGUMENTS
      None.

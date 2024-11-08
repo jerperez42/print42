@@ -6,7 +6,7 @@
 #    By: jerperez <jerperez@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/06 10:28:10 by jerperez          #+#    #+#              #
-#    Updated: 2024/11/08 13:46:19 by jerperez         ###   ########.fr        #
+#    Updated: 2024/11/08 13:53:08 by jerperez         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,8 @@ SRCS	=	print42.cpp \
 			putstr_fd.cpp \
 			log_result.cpp \
 			mood.cpp \
-			time.cpp
+			time.cpp \
+			print.cpp
 
 OBJ_DIR	=	obj
 

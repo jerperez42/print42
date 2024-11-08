@@ -6,12 +6,13 @@
 /*   By: jerperez <jerperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 11:10:15 by jerperez          #+#    #+#             */
-/*   Updated: 2024/11/08 11:47:49 by jerperez         ###   ########.fr       */
+/*   Updated: 2024/11/08 13:58:36 by jerperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "print42.hpp"
 #include <string>
+//#include <iostream> //
 
 void	set_mood(t_map &map, std::string &s)
 {

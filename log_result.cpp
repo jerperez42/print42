@@ -1,28 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   putstr_fd.cpp                                      :+:      :+:    :+:   */
+/*   log_result.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jerperez <jerperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/08 10:50:34 by jerperez          #+#    #+#             */
-/*   Updated: 2024/11/08 13:25:34 by jerperez         ###   ########.fr       */
+/*   Created: 2024/11/08 10:20:26 by jerperez          #+#    #+#             */
+/*   Updated: 2024/11/08 13:14:00 by jerperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string>
-#include <unistd.h>
-#include <cstdlib>
+#include <stdlib.h>
+#include <iostream>
+#include <fstream>
 #include "print42.hpp"
-//#include <iostream>
 
-void putstr_fd(std::string const &s, t_map &map)
+static void log(std::ofstream &f, char *username)
 {
-	std::string opt(map["--set-fd-out"]);
+	f << "I, " << username << " hereby certify I did not read the manual." << std::endl;
+}
 
-	int fd = 0;
-	if ("" != opt)
-		fd = std::atoi(opt.c_str());
-	if (fd == STDIN_FILENO || fd == STDOUT_FILENO || fd == STDERR_FILENO)
-		write(fd, s.c_str(), s.length());
+void log_result(t_map &map)
+{
+	std::string	s(map["--log-result"]);
+
+	if ("no" == s)
+		return ;
+	char 		*username;
+	username = getenv("USER");
+	std::ofstream	f("/tmp/print42_readme.txt");
+
+	if (f.is_open())
+	{
+		log(f, username);
+		f.close();
+	}
 }

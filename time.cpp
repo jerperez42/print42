@@ -1,28 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   putstr_fd.cpp                                      :+:      :+:    :+:   */
+/*   time.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jerperez <jerperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/08 10:50:34 by jerperez          #+#    #+#             */
-/*   Updated: 2024/11/08 13:25:34 by jerperez         ###   ########.fr       */
+/*   Created: 2024/11/08 11:49:11 by jerperez          #+#    #+#             */
+/*   Updated: 2024/11/08 12:00:42 by jerperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string>
-#include <unistd.h>
+#include <stdio.h>
+#include <sys/time.h>
 #include <cstdlib>
 #include "print42.hpp"
-//#include <iostream>
 
-void putstr_fd(std::string const &s, t_map &map)
+static int _ans_time(int ans, int mod=60)
 {
-	std::string opt(map["--set-fd-out"]);
+	struct timeval tv;
+	struct timezone tz;
 
-	int fd = 0;
-	if ("" != opt)
-		fd = std::atoi(opt.c_str());
-	if (fd == STDIN_FILENO || fd == STDOUT_FILENO || fd == STDERR_FILENO)
-		write(fd, s.c_str(), s.length());
+	gettimeofday(&tv,&tz);
+	return ans + ((tv.tv_sec / 60) % mod);
+}
+
+void update_ans_time(t_map &map, int &ans)
+{
+	std::string s = map["--modulo-prendre-temps-journée"];
+
+	if ("" == s)
+		ans = _ans_time(ans, 60);
+	else
+		ans = _ans_time(ans, std::atoi(s.c_str()));
 }

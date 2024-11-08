@@ -6,7 +6,7 @@
 /*   By: jerperez <jerperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 10:21:53 by jerperez          #+#    #+#             */
-/*   Updated: 2024/11/08 11:35:28 by jerperez         ###   ########.fr       */
+/*   Updated: 2024/11/08 13:16:51 by jerperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,16 @@
 # include <map>
 # include <unistd.h>
 # include <cstdlib>
+# include <sstream>
 # include "print42.hpp"
+
+static std::string _cstr(int num)
+{
+	std::stringstream ss;
+
+	ss << num << '\n';
+	return ss.str();
+}
 
 static int	_updateArgs(std::string pair, t_map &map)
 {
@@ -67,16 +76,12 @@ static int	_get_score(int ac, char *av[])
 static void	_print_msg(int ac, char *av[], char *env[], t_map &map)
 {
 	(void)env;
-	std::string ans = ("42\n");
-	std::string set_fd_out = map["--set-fd-out"];
+	int num = 42;
 
-	set_mood(map, ans);
-	// if ("" == set_fd_out)
-	// 	putstr_fd(ans);
-	// else
-	// 	putstr_fd(ans, std::atoi(set_fd_out.c_str()));
-	putstr_fd(ans, 1);
-	log_result(); //
+	update_ans_time(map, num);
+	std::string ans = _cstr(num);
+	putstr_fd(ans, map);
+	log_result(map);
 	std::cerr << "info: your score is " << _get_score(ac, av) << std::endl;
 }
 

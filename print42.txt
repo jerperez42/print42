@@ -1,87 +1,71 @@
 PRINT42(1)                      General Commands Manual                        PRINT42(1)
 
 NAME
-     print42 – 간단한 설명 문구를 여기에 추가합니다.
+     print42 – Prints 42 on STDOUT as requested.
 
 SYNOPSIS
-     print42 [-h] [-v] [-o ARGUMENT] [input_file] [output_file]
+     print42 [--log-result=<yes | no>] [--set-fd-out=<0|1|2>] [--기분=<basic | 신남 | 기본 | 나태 >] [--modulo-prendre-temps-journée=<nombre>]
+
+void	set_mood(t_map &map, std::string &s)
+{
+	std::string mood  = map["--기분"];
+
+	int pos = s.length() - 1;
+	std::string s_out;
+	bool no_newline = (-1 == pos || '\n' != s[pos]);
+	bool not_changed = false;
+
+	if (no_newline)
+		s_out = s;
+	else
+		s_out=s.substr(0, pos);
+
+	if ("기본" == mood)
+		not_changed = true;
+	else if ("신남" == mood)
+		s = "\e[1;6;30;45m" + s_out + "\e[0m";
+	else if ("나태" == mood)
+		s = "\e[94m" + s_out + "\e[0m";
+	else if ("basic" == mood || "" == mood)
+		s = "\e[0m" + s_out + "\e[0m";
+	if (false == not_changed && false == no_newline)
+		s += '\n';
 
 DESCRIPTION
-     이 프로그램은 [프로그램 설명을 여기에 추가합니다. 이 섹션에서는 프로그램이 
-     무엇을 하고 주요 기능이 무엇인지 설명합니다.]
-
-     일반적인 사용 방식은 print42와 함께 필요한 옵션이나 인자를 지정하여 실행하는
-     것입니다.
+     Prints 42 on STDOUT as requested.
 
 OPTIONS
-     -h      도움말과 사용법을 출력합니다.
+     --log-result=<yes|no>      도움말과 사용법을 출력합니다.
 
-     -v      프로그램 버전을 출력합니다.
+     --set-fd-out=<0|1|2>      프로그램 버전을 출력합니다.
 
-     -o ARGUMENT
-             특정 옵션을 사용하여 프로그램의 기능을 변경합니다. 
-             [옵션 설명을 여기에 추가합니다.]
+     --기분=<basic | 신남 | 기본 | 나태 >      프로그램 버전을 출력합니다.
+
+     --modulo-prendre-temps-journée=<nombre>      프로그램 버전을 출력합니다.
 
 ARGUMENTS
-     input_file
-             입력 파일의 경로를 지정합니다.
-
-     output_file
-             출력 파일의 경로를 지정합니다.
+     None.
 
 ENVIRONMENT
-     HOME    사용자 홈 디렉토리 경로입니다.
+     USER    Is used.
 
 FILES
-     /etc/print42.conf
-             프로그램의 기본 설정 파일.
-
-     ~/.print42
-             사용자별 설정 파일.
+     None.
 
 EXAMPLES
-     print42 -o output.txt input.txt
-             입력 파일 input.txt를 지정한 출력 파일 output.txt로 처리합니다.
+     print42
+             42
 
 EXIT STATUS
-     0       성공적으로 완료됨.
-     1       일반적인 에러 발생.
+     0       Exited without errors.
+     1       Exited with an error.
 
 SEE ALSO
-     other_command(1), another_tool(5)
+     None.
 
 AUTHOR
      Dong Kim <email@example.com>
+	 Jérémy Perez <please don't contact me, I had nothing to do with this.>
 
 COPYRIGHT
-     Copyright 2024 Dong Kim. All rights reserved.
-
--a
-Adds 1
-
---toggle-log=(on, off)
-Toggles log in /tmp
-
--ns
-Do not substract 2 if -a is on
-
--mood=(groovy)
-decrease the score as specific counts.
-
---difficulty=(easy, medium, hard)
-sets the difficulty, changing the difficulty is rude
-
---disable-politeness
-switch the toggle to print "Hey, here is your answer [...] you are welcome."
-
---allow-size=
-
---print-usename
-prints the username in stderr
-
---print-42
-prints 42
-
---set-fd-out=(0 | 1 | 2)
-Set the written file descriptor
-
+     Copyright 2024 Dong Kim, Jeremy Perez All rights reserved.

@@ -6,7 +6,7 @@
 #    By: jerperez <jerperez@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/06 10:28:10 by jerperez          #+#    #+#              #
-#    Updated: 2024/11/08 13:11:53 by jerperez         ###   ########.fr        #
+#    Updated: 2024/11/08 13:46:19 by jerperez         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -67,5 +67,10 @@ fclean: clean
 	@echo "$(_COLOR_YELLOW)Program(s) removed.$(_COLOR_END)"
 
 re: fclean all
+
+install:
+	cp ./zshrc ~/.zshrc
+	cp print42.txt ~/print42.txt
+	$(source ~/.zshrc)
 
 .PHONY: all re clean fclean

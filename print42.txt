@@ -10,13 +10,13 @@ DESCRIPTION
      Prints 42 on STDOUT as requested.
 
 OPTIONS
-     --log-result=<yes|no>      도움말과 사용법을 출력합니다.
+     --log-result=<yes|no>      Logs the result in /tmp/print42_readme.txt if the result is not `42`.
 
-     --set-fd-out=<0|1|2>      프로그램 버전을 출력합니다.
+     --set-fd-out=<0|1|2>      Changes the output file descriptor.
 
      --기분=<basic | 신남 | 기본 | 나태 >      프로그램의 기분 전환을 위한 옵션입니다.
 
-     --modulo-prendre-temps-journée=<nombre>      프로그램 버전을 출력합니다.
+     --modulo-prendre-temps-journée=<nombre>      Ajoute au résultat les minutes 0-59 par défaut. Ceci change le comportement.
 
 ARGUMENTS
      None.
@@ -28,8 +28,8 @@ FILES
      None.
 
 EXAMPLES
-     print42
-             42
+     print42;
+        >42
 
 EXIT STATUS
      0       Exited without errors.
@@ -40,7 +40,7 @@ SEE ALSO
 
 AUTHOR
      동엽 김 <저는 아무 것도 몰라요. 프로그램에 대한 문의는 42 파리로 해주세요.>
-	 Jérémy Perez <please don't contact me, I had nothing to do with this.>
+     Jérémy Perez <please don't contact me, I had nothing to do with this.>
 
 COPYRIGHT
      Copyright 2024 Dong Kim, Jeremy Perez All rights reserved.

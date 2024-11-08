@@ -6,7 +6,7 @@
 /*   By: jerperez <jerperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 10:20:26 by jerperez          #+#    #+#             */
-/*   Updated: 2024/11/08 13:14:00 by jerperez         ###   ########.fr       */
+/*   Updated: 2024/11/08 13:46:46 by jerperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ static void log(std::ofstream &f, char *username)
 	f << "I, " << username << " hereby certify I did not read the manual." << std::endl;
 }
 
-void log_result(t_map &map)
+void log_result(std::string const &ans, t_map &map)
 {
 	std::string	s(map["--log-result"]);
 
-	if ("no" == s)
+	if ("no" == s || "42\n" == ans)
 		return ;
 	char 		*username;
 	username = getenv("USER");

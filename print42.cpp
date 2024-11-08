@@ -6,7 +6,7 @@
 /*   By: jerperez <jerperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 10:21:53 by jerperez          #+#    #+#             */
-/*   Updated: 2024/11/08 13:16:51 by jerperez         ###   ########.fr       */
+/*   Updated: 2024/11/08 13:35:46 by jerperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ static void	_print_msg(int ac, char *av[], char *env[], t_map &map)
 	update_ans_time(map, num);
 	std::string ans = _cstr(num);
 	putstr_fd(ans, map);
-	log_result(map);
+	log_result(ans, map);
 	std::cerr << "info: your score is " << _get_score(ac, av) << std::endl;
 }
 
